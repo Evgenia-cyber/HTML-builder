@@ -23,6 +23,7 @@ const printInfoAboutFiles = (pathToDirectory) => {
         if (file.isFile()) {
           const fileExtention = path.extname(filePath).split('.')[1];
           const fileName = fileNameWithExtention.split('.')[0];
+          // Метод fs.stat () используется для возврата информации о данном файле или каталоге. Он возвращает объект fs.Stat, который имеет несколько свойств и методов для получения сведений о файле или каталоге.(https://www.geeksforgeeks.org/node-js-fs-stat-method/)
           fs.stat(filePath, (err, stats) => {
             console.log(
               `${fileName} - ${fileExtention} - ${stats.size / 1000}kb`,
