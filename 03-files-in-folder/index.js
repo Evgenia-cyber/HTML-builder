@@ -26,7 +26,7 @@ const printInfoAboutFiles = (pathToDirectory) => {
           // Метод fs.stat () используется для возврата информации о данном файле или каталоге. Он возвращает объект fs.Stat, который имеет несколько свойств и методов для получения сведений о файле или каталоге.(https://www.geeksforgeeks.org/node-js-fs-stat-method/)
           fs.stat(filePath, (err, stats) => {
             console.log(
-              `${fileName} - ${fileExtention} - ${stats.size / 1000}kb`,
+              `${fileName} - ${fileExtention} - ${stats.size}b`,
             );
           });
         }
