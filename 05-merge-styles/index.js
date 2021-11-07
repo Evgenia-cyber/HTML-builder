@@ -45,7 +45,7 @@ const copyStyles = (pathDirectoryFrom, filePathTo) => {
         );
         const fileExtention = path.extname(fileNameWithExtention);
         if (file.isFile() && fileExtention === '.css') {
-          console.log(fileNameWithExtention);
+          // console.log(pathDirectoryFrom, fileNameWithExtention);
           fs.createReadStream(filePathFrom).pipe(
             fs.createWriteStream(filePathTo, { flags: 'a' }),
           ); // чтобы дописывалось, а не перезаписывалось, добавляем флаг
@@ -53,4 +53,8 @@ const copyStyles = (pathDirectoryFrom, filePathTo) => {
       });
     }
   });
+};
+
+module.exports = {
+  copyStyles,
 };

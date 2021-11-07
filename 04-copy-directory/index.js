@@ -43,7 +43,7 @@ fs.stat(directoryТоPath, function (err) {
       console.log('Папка успешно создана');
     });
   }
-  
+
   copyDir(directoryFromPath, directoryТоPath);
 });
 
