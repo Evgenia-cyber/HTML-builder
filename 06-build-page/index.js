@@ -156,10 +156,15 @@ const copyDir = (pathDirectoryFrom, pathDirectoryTo) => {
           makeDirectory(newPathTo);
           copyDir(filePathFrom, newPathTo);
         } else if (file.isFile()) {
-          const filePathTo = path.join(pathDirectoryTo, fileNameWithExtention);
-          fs.createReadStream(filePathFrom).pipe(
-            fs.createWriteStream(filePathTo),
-          );
+          setTimeout(() => {
+            const filePathTo = path.join(
+              pathDirectoryTo,
+              fileNameWithExtention,
+            );
+            fs.createReadStream(filePathFrom).pipe(
+              fs.createWriteStream(filePathTo),
+            );
+          }, 500);
         }
       });
     }
