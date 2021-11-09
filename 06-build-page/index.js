@@ -127,13 +127,15 @@ const copyHTML = (pathDirectoryFrom, pathTemplateFrom, pathFileTo) => {
 
         // если это последний тег
         const isLastTag = templateTags.length - 1 === index;
-        if (isLastTag) {
-          // записываем измененный код без тегов в project-dist/index.html
-          fs.writeFile(pathFileTo, htmlTemplate, function (error) {
-            if (error) throw error; // ecли ошибка записи файла
-            console.log('Данные успешно записаны в файл');
-          });
-        }
+        setTimeout(() => {
+          if (isLastTag) {
+            // записываем измененный код без тегов в project-dist/index.html
+            fs.writeFile(pathFileTo, htmlTemplate, function (error) {
+              if (error) throw error; // ecли ошибка записи файла
+              console.log('Данные успешно записаны в файл');
+            });
+          }
+        }, 500);
       });
     });
   });
